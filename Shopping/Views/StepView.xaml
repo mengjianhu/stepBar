@@ -1,0 +1,60 @@
+﻿<Window x:Class="Shopping.Views.StepView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shopping.Views"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:rubyer="http://rubyer.io/winfx/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="StepView"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition   />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!--<Button   Grid.Row="0"
+                  x:Name="openPage1"
+                  Style="{StaticResource ButtonSuccess}"
+                  Content="测试"
+                  Command="{Binding textCommand}"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top" />-->
+
+        <!--<rubyer:StepBar CurrentIndex="0">
+            <rubyer:StepBarItem  Description="description"  >123</rubyer:StepBarItem>
+            <rubyer:StepBarItem  Description="description">123</rubyer:StepBarItem>
+            <rubyer:StepBarItem  Description="description">123</rubyer:StepBarItem>
+            <rubyer:StepBarItem  Description="description">123</rubyer:StepBarItem>
+        </rubyer:StepBar>-->
+        <rubyer:StepBar CurrentIndex="{Binding StepBarIndex}">
+            <rubyer:StepBarItem  Description="description">123</rubyer:StepBarItem>
+            <rubyer:StepBarItem  Description="description">123</rubyer:StepBarItem>
+            <rubyer:StepBarItem  Description="description">123</rubyer:StepBarItem>
+        </rubyer:StepBar>
+        <ContentControl Grid.Row="2"
+                        prism:RegionManager.RegionName="test" />
+        <DockPanel HorizontalAlignment="Right"
+                   Grid.Row="2"
+                   VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="上一步"
+                        DockPanel.Dock="Bottom"
+                        Command="{Binding upStep}"
+                        IsEnabled="{Binding isTrue}"
+                        Visibility="Visible" />
+                <Button Content="下一步"
+                        DockPanel.Dock="Bottom"
+                        Command="{Binding nextStep}"
+                        IsEnabled="{Binding isNextTrue}"
+                        Visibility="Visible" />
+            </StackPanel>
+
+        </DockPanel>
+    </Grid>
+</Window>
